@@ -1,0 +1,60 @@
+move 0 2 2
+move 1 3 3
+move 2 4 2
+move 3 5 3
+move 4 6 2
+move 5 7 3
+move 6 8 2
+move 7 5 0
+move 8 4 11
+move 9 3 10
+move 10 5 10
+move 11 2 9
+move 12 6 9
+move 13 1 8
+move 14 7 8
+move 15 0 7
+move 16 5 14
+walk 2 3 9
+walk 1 3 9
+walk 5 7 7
+attack 5 7 8 lose
+walk 6 8 8
+walk 9 3 7
+attack 9 3 6 win
+walk 10 5 7
+attack 10 4 7 win
+walk 13 1 2
+walk 14 8 8
+attack 14 8 7 win
+walk 16 5 4
+walk 15 2 3
+walk 12 6 3
+walk 11 2 3
+walk 8 4 3
+walk 7 6 3
+walk 4 6 3
+attack 4 6 4 lose
+walk 3 5 4
+attack 3 6 4 lose
+walk 0 1 2
+attack 0 1 3 win
+walk 0 2 3
+attack 0 2 4 win
+walk 7 7 4
+attack 7 6 4 win
+walk 8 7 5
+attack 8 7 4 win
+walk 11 3 3
+attack 11 2 3 lose
+walk 16 2 2
+walk 14 2 2
+walk 10 2 2
+walk 9 2 2
+walk 0 3 5
+attack 0 3 4 lose
+walk 9 0 0
+walk 10 0 0
+walk 14 0 0
+walk 16 0 0
+walk 8 0 0
