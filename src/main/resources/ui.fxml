@@ -44,5 +44,8 @@
          </font></Label>
       <ImageView fx:id="head" fitHeight="50.0" fitWidth="50.0" layoutX="-36.0" layoutY="-26.0" pickOnBounds="true" preserveRatio="true" x="50.0" y="40.0" />
       <Button fx:id="yanyueDemon" focusTraversable="false" layoutX="1200.0" layoutY="409.0" mnemonicParsing="false" onAction="#yanyueDemonOnAction" text="偃月" />
+      <Label layoutX="12.0" layoutY="46.0" prefHeight="37.0" prefWidth="78.0" text="R 重置" />
+      <Label layoutX="12.0" layoutY="83.0" prefHeight="37.0" prefWidth="78.0" text="L 观看录像" />
+      <Label layoutX="12.0" layoutY="14.0" prefHeight="37.0" prefWidth="78.0" text="SPACE 开始" />
    </children>
 </Pane>

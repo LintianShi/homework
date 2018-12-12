@@ -254,48 +254,29 @@ public class GameController implements Initializable {
     }
 
     @FXML private void canvasDragDetect(MouseEvent event) {
-        /*int x = (int)event.getX() - 60;
+        int x = (int)event.getX();
         int y = (int)event.getY();
-        x = x / 30;
-        y = y / 30;
+        x = x / 72;
+        y = y / 72;
         if (battle.space.getCreature(y, x) != null) {
             selected = battle.space.getCreature(y, x);
-            head.setImage(selected.getImage());
-            info.setText(selected.getName());
-        }*/
+            //head.setImage(selected.getImage());
+            //info.setText(selected.getName());
+        }
     }
 
     @FXML private void canvasDrag(MouseEvent event) {
-
+        int x = (int)event.getX();
+        int y = (int)event.getY();
+        x = x / 72;
+        y = y / 72;
+        if (selected != null) {
+            selected.moveTo(battle.space, y, x);
+        }
+        display();
     }
 
     private void replay(BufferedReader br) {
-        /*Creature.controller = this;
-        //display();
-        try {
-            while(br.read()!=-1){
-                String text = br.readLine();
-                System.out.println(text);
-                String[] array = text.split(" ");
-
-                if (array[0].equals("ove") || array[0].equals("alk")) {
-                    if (Integer.parseInt(array[1]) <= 7) {
-                        System.out.println("hulu");
-                        //System.out.println(array);
-                        battle.huluBrothers.get(Integer.parseInt(array[1])).moveToReplay(battle.space, Integer.parseInt(array[2]), Integer.parseInt(array[3]));
-                    } else {
-                        System.out.println("demon");
-                        battle.monsters.get(Integer.parseInt(array[1])).moveToReplay(battle.space, Integer.parseInt(array[2]), Integer.parseInt(array[3]));
-                    }
-                    display();
-
-                    //TimeUnit.MILLISECONDS.sleep(800);
-
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
         threadPool[0] = new Thread(new Replay(br, this, battle));
         threadPool[0].start();
     }

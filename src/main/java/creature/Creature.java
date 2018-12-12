@@ -6,7 +6,6 @@ import mythread.MyRunnable;
 import space.*;
 import javax.imageio.*;
 import java.io.*;
-import java.sql.Time;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Random;
@@ -27,7 +26,6 @@ public class Creature implements Runnable{
     protected Image image;
     protected boolean evil;
     protected boolean alive;
-    protected int walk;
 
     public static GameController controller;
     public static int[] evilTest = {0,0,0,0,0,0,0,0,0};
@@ -37,7 +35,6 @@ public class Creature implements Runnable{
 
 
     public Creature(){
-        walk = 1;
         coordinateX = -1;
         coordinateY = -1;
         name = "未命名";
@@ -133,13 +130,8 @@ public class Creature implements Runnable{
         }
     }
 
-    public void walkPathTo(int i, int j, TwoDimensionSpace space, GameController gc) {
-        /*try {
-            out.write("walk " + no + " " + i + " " + j + "\n");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-
+    public void walkPathTo(int i, int j, GameController gc) {
+        TwoDimensionSpace space = gc.getSpace();
         HashMap<Integer, Integer> path = new Navigation().getNavigate(this, space);
         Stack<Integer> st = new Stack<Integer>();
         int x = i;
@@ -150,22 +142,23 @@ public class Creature implements Runnable{
             z = path.get(z);
         }
         //System.out.println(st);
-        int k = walk;
+        int k = 1;
         while (!st.isEmpty() && k > 0) {
             int temp = st.pop();
             k--;
             moveTo(space, temp/100, temp%100);
-            /*try {
-                wait(10000);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }*/
             gc.display();
-            /*try {
-                TimeUnit.MILLISECONDS.sleep(800);
-            } catch (Exception e) {
-                ;
-            }*/
+        }
+        if (k == 1) {
+            if (x > getCoordinateX() && space.isEmpty(getCoordinateX()+1, getCoordinateY())) {
+                moveTo(space, getCoordinateX()+1, getCoordinateY());
+            } else if (x < getCoordinateX() && space.isEmpty(getCoordinateX()-1, getCoordinateY())) {
+                moveTo(space, getCoordinateX()-1, getCoordinateY());
+            } else if (y > getCoordinateY() && space.isEmpty(getCoordinateX(), getCoordinateY()+1)) {
+                moveTo(space, getCoordinateX(), getCoordinateY()+1);
+            } else if (y < getCoordinateY() && space.isEmpty(getCoordinateX()+1, getCoordinateY()-1)) {
+                moveTo(space, getCoordinateX(), getCoordinateY()-1);
+            }
         }
     }
     public void forward(TwoDimensionSpace space, GameController gc) {
@@ -198,7 +191,7 @@ public class Creature implements Runnable{
         if (trapped == 4) {
             for (int k = 4; k < 8; k++) {
                 if (space.isEmpty(getCoordinateX()+x[k], getCoordinateY()+y[k])) {
-                    walkPathTo(getCoordinateX()+x[k], getCoordinateY()+y[k], space, gc);
+                    walkPathTo(getCoordinateX()+x[k], getCoordinateY()+y[k], gc);
                 }
             }
         }
@@ -227,7 +220,7 @@ public class Creature implements Runnable{
 
             }
         }
-        walkPathTo(coord_x, coord_y, space, gc);
+        walkPathTo(coord_x, coord_y,  gc);
         return;
     }
     public int attack(TwoDimensionSpace space, GameController gc) {
@@ -241,7 +234,7 @@ public class Creature implements Runnable{
                 if (space.isCreatureOn(getCoordinateX() + x[i], getCoordinateY() + y[i])
                         && space.getCreature(getCoordinateX() + x[i], getCoordinateY() + y[i]).isAlive()
                         && space.getCreature(getCoordinateX() + x[i], getCoordinateY() + y[i]).isEvil() ^ isEvil()) {
-                    System.out.println(getName() + "attack" + space.getCreature(getCoordinateX() + x[i], getCoordinateY() + y[i]).getName());
+
                     Random ra = new Random();
                     gc.display(getCoordinateX() + 0.5 * x[i], getCoordinateY() + 0.5 * y[i]);
                     if (ra.nextBoolean()) {
@@ -253,7 +246,6 @@ public class Creature implements Runnable{
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        //return i;
                     } else {
                         die();
                         try {
@@ -263,16 +255,7 @@ public class Creature implements Runnable{
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        //return i;
                     }
-                    /*try {
-                        TimeUnit.MILLISECONDS.sleep(500);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }*/
-                    //gc.display();
-
-                    System.out.println(getName() + "attack" + space.getCreature(getCoordinateX() + x[i], getCoordinateY() + y[i]).getName());
                     return i;
                 }
             }
@@ -303,11 +286,6 @@ public class Creature implements Runnable{
     public void run() {
         int i = 99;
         while (i >= 0) {
-            try {
-                TimeUnit.MILLISECONDS.sleep(100);
-            } catch (Exception e) {
-                ;
-            }
             i--;
             int s = 1;
             for (int k = 0; k < 9; k++) {
@@ -319,11 +297,11 @@ public class Creature implements Runnable{
                         controller.setLabel("Justice win");
                     }
                 });
-                /*try {
+                try {
                     controller.getBarrier().await();
                 } catch (Exception e) {
                     e.printStackTrace();
-                }*/
+                }
                 try {
                     out.close();
                 } catch (Exception e) {
@@ -341,11 +319,11 @@ public class Creature implements Runnable{
                         controller.setLabel("Evil win");
                     }
                 });
-                /*try {
+                try {
                     controller.getBarrier().await();
                 } catch (Exception e) {
                     e.printStackTrace();
-                }*/
+                }
                 try {
                     out.close();
                 } catch (Exception e) {
@@ -353,10 +331,6 @@ public class Creature implements Runnable{
                 }
                 break;
             }
-
-
-
-
             if (isAlive()) {
                 synchronized (Creature.class) {
                     if (isAlive()) {
@@ -364,10 +338,11 @@ public class Creature implements Runnable{
                     }
                 }
                 try {
-                    TimeUnit.MILLISECONDS.sleep(new Random().nextInt(20) * 25 + 300);
+                    TimeUnit.MILLISECONDS.sleep(new Random().nextInt(20) * 2 + 200);
                 } catch (Exception e) {
                     ;
                 }
+
                 int direction = 0;
                 synchronized (Creature.class) {
                     if (isAlive()) {
@@ -376,18 +351,12 @@ public class Creature implements Runnable{
                 }
                 if (direction != -1) {
                     try {
-                        TimeUnit.MILLISECONDS.sleep(new Random().nextInt(40) * 50 + 1000);
+                        TimeUnit.MILLISECONDS.sleep(new Random().nextInt(40) * 5 + 200);
                     } catch (Exception e) {
                         ;
                     }
                     synchronized (Creature.class) {
                         display();
-                    }
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(1000);
-                        //Thread.sleep(1000);
-                    } catch (Exception e) {
-                        ;
                     }
                 }
             } else {
@@ -396,6 +365,16 @@ public class Creature implements Runnable{
                 } else {
                     justiceTest[no] = 1;
                 }
+            }
+            try {
+                TimeUnit.MILLISECONDS.sleep(100);
+            } catch (Exception e) {
+                ;
+            }
+            try {
+                controller.getBarrier().await();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

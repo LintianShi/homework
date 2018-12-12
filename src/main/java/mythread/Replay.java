@@ -2,6 +2,7 @@ package mythread;
 
 import battle.BattleField;
 import gui.GameController;
+import javafx.application.Platform;
 
 import java.io.BufferedReader;
 import java.util.concurrent.TimeUnit;
@@ -32,7 +33,7 @@ public class Replay implements Runnable {
                         battle.monsters.get(Integer.parseInt(array[1])).moveToReplay(battle.space, Integer.parseInt(array[2]), Integer.parseInt(array[3]));
                     }
                     gc.display();
-                    TimeUnit.MILLISECONDS.sleep(200);
+                    TimeUnit.MILLISECONDS.sleep(50);
                 } else if (array[0].equals("ttack")) {
                     boolean win = true;
                     if (array[4].equals("win")) {
@@ -47,6 +48,11 @@ public class Replay implements Runnable {
                     }
                 }
             }
+            Platform.runLater(new Runnable() {
+                public void run() {
+                    gc.setLabel("end");
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
