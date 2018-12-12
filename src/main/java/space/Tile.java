@@ -27,6 +27,7 @@ public class Tile<T extends Creature> {
         coordinateY = y;
     }
     public void removeCreatureStandOnTile(){
+        creatureStandOnTile.setCoordinate(-1, -1);
         creatureStandOnTile = null;
         //System.out.println(" "+coordinateX+" "+coordinateY);
     }

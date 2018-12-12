@@ -285,6 +285,7 @@ public class Creature implements Runnable{
 
     public void run() {
         int i = 99;
+        int last = 5 + new Random().nextInt(5);
         while (i >= 0) {
             i--;
             int s = 1;
@@ -360,6 +361,15 @@ public class Creature implements Runnable{
                     }
                 }
             } else {
+                last--;
+                if (last < 0 && getCoordinateX() != -1 && getCoordinateY() != -1) {
+                    try {
+                        out.write("clean "+ getCoordinateX() + " " + getCoordinateY() + "\n");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    controller.getSpace().cleanSpace(getCoordinateX(), getCoordinateY());
+                }
                 if (isEvil()) {
                     evilTest[no - 8] = 1;
                 } else {
@@ -367,7 +377,7 @@ public class Creature implements Runnable{
                 }
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(100);
+                TimeUnit.MILLISECONDS.sleep(300);
             } catch (Exception e) {
                 ;
             }

@@ -33,7 +33,7 @@ public class Replay implements Runnable {
                         battle.monsters.get(Integer.parseInt(array[1])).moveToReplay(battle.space, Integer.parseInt(array[2]), Integer.parseInt(array[3]));
                     }
                     gc.display();
-                    TimeUnit.MILLISECONDS.sleep(50);
+                    TimeUnit.MILLISECONDS.sleep(100);
                 } else if (array[0].equals("ttack")) {
                     boolean win = true;
                     if (array[4].equals("win")) {
@@ -46,6 +46,13 @@ public class Replay implements Runnable {
                     } else {
                         battle.monsters.get(Integer.parseInt(array[1])).attackReplay(battle.space,Integer.parseInt(array[2]), Integer.parseInt(array[3]), win, gc);
                     }
+                    gc.display();
+                    TimeUnit.MILLISECONDS.sleep(100);
+                } else if (array[0].equals("lean")) {
+                    System.out.println(array[1] + " " + array[2]);
+                    battle.space.cleanSpace(Integer.parseInt(array[1]), Integer.parseInt(array[2]));
+                    gc.display();
+                    TimeUnit.MILLISECONDS.sleep(100);
                 }
             }
             Platform.runLater(new Runnable() {
