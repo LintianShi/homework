@@ -1,52 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67def8fa-62c7-4773-b13d-0ff33127b6bb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/show" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/show1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/show2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/show3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/creature/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/creature/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/blue.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/cyan.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/grandpa.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/green.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/ground.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/loulou.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/orange.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/purple.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/red.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/scorpion.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/snake.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/image/yellow.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mythread/Replay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mythread/Replay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/HuluWa-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creature/Creature$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creature/Creature$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creature/Creature$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creature/Creature$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creature/Creature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creature/Creature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-HuluWa-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/FormationTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/HuluWaSortTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-FormationTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-HuluWaSortTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TwoDimensionSpaceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TwoDimensionSpaceTest.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="67def8fa-62c7-4773-b13d-0ff33127b6bb" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +14,7 @@
     <session id="1400235161">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.146" value="1" />
           <entry key="project.open.time.15" value="1" />
@@ -92,13 +47,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="9858" />
+          <entry key="java" value="9861" />
           <entry key="xml" value="106" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9858" />
+          <entry key="JAVA" value="9861" />
           <entry key="XML" value="106" />
         </counts>
       </usages-collector>
@@ -163,8 +118,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/mythread/Replay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+            <state relative-caret-position="169">
+              <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2229#2353#0" expanded="true" />
@@ -400,7 +355,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544634137006" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544634235193" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -482,16 +437,15 @@
       <workItem from="1544146022614" duration="19000" />
       <workItem from="1544343962175" duration="18038000" />
       <workItem from="1544494160672" duration="17537000" />
-      <workItem from="1544624508906" duration="5593000" />
+      <workItem from="1544624508906" duration="6255000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87329000" />
+    <option name="totallyTimeSpent" value="87991000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -502,7 +456,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32911393" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39968404" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -858,8 +812,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mythread/Replay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+        <state relative-caret-position="169">
+          <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2229#2353#0" expanded="true" />
