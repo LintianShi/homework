@@ -8,7 +8,7 @@
 * HuluWa World是一个葫芦娃与妖精对战的游戏。游戏开始前玩家可以布置阵型，游戏开始后葫芦娃与妖精自动进行战斗。
 * 除了战斗功能外，还支持录像回看。
 ## 运行截图  
-![avatar]("ScreenShots/battle1.png")
+![image](ScreenShots/battle1.png)
 ## 运行说明
 * 使用Maven对项目进行编译，打包。
 * 运行target目录下HuluWa-1.0-SNAPSHOT.jar。
