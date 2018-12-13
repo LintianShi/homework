@@ -2,7 +2,7 @@ package sort;
 import annotation.AuthorAnno;
 import creature.HuluWa;
 @AuthorAnno()
-public class HuluWaBubbleSort implements Sort {
+public class HuluWaPrioritySort implements Sort {
     public void sort(HuluWa[] brothers) {
         for (int i = 0; i < brothers.length; i++) {
             for (int j = 0; j < brothers.length-i-1; j++) {

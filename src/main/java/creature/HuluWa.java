@@ -9,8 +9,10 @@ public class HuluWa extends Creature {
     private int priority;
     private COLOR color;
     public HuluWa(int huluwaNumber) {
+        super();
         switch (huluwaNumber) {
             case 1:
+                //super("老大", "image/Dawa.png", false);
                 name = "老大";
                 priority = 1;
                 color = COLOR.RED;
@@ -56,8 +58,8 @@ public class HuluWa extends Creature {
                 System.out.println("error:there is only 7 HuluWas");
                 break;
         }
-        alive = true;
-        evil = false;
+        //alive = true;
+        //evil = false;
         //image = new Image(imgPath);
     }
     public void shoutOutColor(){

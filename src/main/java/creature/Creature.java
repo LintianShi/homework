@@ -19,31 +19,44 @@ import static java.lang.Math.abs;
 @AuthorAnno()
 public class Creature implements Runnable{
     protected String name;
-    protected int coordinateX;
-    protected int coordinateY;
+    private int coordinateX;
+    private int coordinateY;
     protected String imgPath;
-    protected Image image;
-    protected boolean evil;
-    protected boolean alive;
-    protected boolean fight;
+    private Image image;
+    private boolean evil;
+    private boolean alive;
 
     public static GameController controller;
-    public static int[] evilTest = {0,0,0,0,0,0,0,0,0};
-    public static int[] justiceTest = {0,0,0,0,0,0,0,0};
-    public static ReplayWriter out;
-    protected int no;
+    private static int[] evilTest = {0,0,0,0,0,0,0,0,0};
+    private static int[] justiceTest = {0,0,0,0,0,0,0,0};
+    //private ReplayWriter out;
+    private int no;
 
-
+    public Creature(String name, String imgPath, boolean evil){
+        coordinateX = -1;
+        coordinateY = -1;
+        this.name = name;
+        this.imgPath = imgPath;
+        this.evil = evil;
+        this.alive = true;
+        //out = new ReplayWriter();
+    }
 
     public Creature(){
         coordinateX = -1;
         coordinateY = -1;
         name = "未命名";
+        evil = false;
+        alive = true;
+        //out = new ReplayWriter();
     }
     public Creature(String name){
         coordinateX = -1;
         coordinateY = -1;
         this.name = name;
+        alive = true;
+        evil = false;
+        //out = new ReplayWriter();
     }
     public static void refresh() {
         for (int i = 0; i < evilTest.length; i++) {
@@ -97,7 +110,7 @@ public class Creature implements Runnable{
     }
     public boolean moveTo(TwoDimensionSpace space, int x, int y){
         try {
-            out.write("walk " + no + " " + x + " " + y + "\n");
+            new ReplayWriter().write("walk " + no + " " + x + " " + y + "\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -243,7 +256,7 @@ public class Creature implements Runnable{
                         try {
                             int temp_x = (getCoordinateX() + x[i]);
                             int temp_y = (getCoordinateY() + y[i]);
-                            out.write("attack " + no + " " + temp_x + " " + temp_y + " " + "win" + "\n");
+                            new ReplayWriter().write("attack " + no + " " + temp_x + " " + temp_y + " " + "win" + "\n");
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -252,7 +265,7 @@ public class Creature implements Runnable{
                         try {
                             int temp_x = (getCoordinateX() + x[i]);
                             int temp_y = (getCoordinateY() + y[i]);
-                            out.write("attack " + no + " " + temp_x + " " + temp_y + " " + "lose" + "\n");
+                            new ReplayWriter().write("attack " + no + " " + temp_x + " " + temp_y + " " + "lose" + "\n");
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -305,7 +318,7 @@ public class Creature implements Runnable{
                     e.printStackTrace();
                 }
                 try {
-                    out.close();
+                    new ReplayWriter().close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -327,7 +340,7 @@ public class Creature implements Runnable{
                     e.printStackTrace();
                 }
                 try {
-                    out.close();
+                    new ReplayWriter().close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -373,7 +386,7 @@ public class Creature implements Runnable{
                 last--;
                 if (last < 0 && getCoordinateX() != -1 && getCoordinateY() != -1) {
                     try {
-                        out.write("clean "+ getCoordinateX() + " " + getCoordinateY() + "\n");
+                        new ReplayWriter().write("clean "+ getCoordinateX() + " " + getCoordinateY() + "\n");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

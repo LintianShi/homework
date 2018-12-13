@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67def8fa-62c7-4773-b13d-0ff33127b6bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/replay/ReplayWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battle/BattleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battle/BattleField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/creature/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/creature/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/creature/Demon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/creature/Demon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/creature/Grandpa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/creature/Grandpa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/creature/HuluWa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/creature/HuluWa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/creature/Scorpion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/creature/Scorpion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/creature/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/creature/Snake.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mythread/MyRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/replay/MyRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mythread/Replay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/replay/Replay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/replay/MyRunnable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/replay/Replay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/replay/Replay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/replay/ReplayWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/replay/ReplayWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sort/HuluWaBubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sort/HuluWaPrioritySort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/HuluWaSortTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HuluWaSortTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -43,30 +51,34 @@
         <counts>
           <entry key="Creature" value="1" />
           <entry key="JAVA/creature" value="1" />
+          <entry key="JAVA/formation" value="1" />
           <entry key="JAVA/group" value="1" />
+          <entry key="JAVA/sort" value="1" />
           <entry key="fxml" value="4" />
           <entry key="iml" value="1" />
-          <entry key="java" value="131" />
+          <entry key="java" value="150" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="131" />
-          <entry key="UML" value="3" />
+          <entry key="JAVA" value="150" />
+          <entry key="UML" value="5" />
           <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="10515" />
+          <entry key="dummy" value="8" />
+          <entry key="java" value="10949" />
           <entry key="xml" value="106" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10515" />
+          <entry key="JAVA" value="10949" />
+          <entry key="PLAIN_TEXT" value="8" />
           <entry key="XML" value="106" />
         </counts>
       </usages-collector>
@@ -77,8 +89,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/creature/Creature.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="342" column="80" selection-start-line="342" selection-start-column="80" selection-end-line="342" selection-end-column="80" />
+            <state relative-caret-position="5073">
+              <caret line="388" column="48" selection-start-line="388" selection-start-column="48" selection-end-line="388" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,28 +99,100 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/group/Group.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/battle/BattleField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="8" column="1" lean-forward="true" selection-start-line="5" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="38">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/group/HuluBrothers.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/color/COLOR.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1121">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="76">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/group/Monsters.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sort/Sort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+            <state relative-caret-position="57">
+              <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sort/HuluWaColorSort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="4" column="28" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/navigate/Navigation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="12" column="87" lean-forward="true" selection-start-line="11" selection-end-line="12" selection-end-column="87" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/replay/Replay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/replay/ReplayWriter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="4" selection-end-line="18" selection-end-column="1" />
+              <folding>
+                <element signature="e#134#135#0" expanded="true" />
+                <element signature="e#150#151#0" expanded="true" />
+                <element signature="e#191#192#0" expanded="true" />
+                <element signature="e#221#222#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sort/HuluWaPrioritySort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gui/GameController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="297" column="53" lean-forward="true" selection-start-line="297" selection-start-column="53" selection-end-line="297" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2593#2594#0" expanded="true" />
+                <element signature="e#2622#2623#0" expanded="true" />
+                <element signature="e#4394#4395#0" expanded="true" />
+                <element signature="e#4427#4428#0" expanded="true" />
+                <element signature="e#4489#4490#0" expanded="true" />
+                <element signature="e#4525#4526#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,16 +217,11 @@
         <option value="$PROJECT_DIR$/src/main/java/formation/Formation.java" />
         <option value="$PROJECT_DIR$/src/main/java/sort/Sort.java" />
         <option value="$PROJECT_DIR$/src/main/java/sort/HuluWaColorSort.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sort/HuluWaBubbleSort.java" />
         <option value="$PROJECT_DIR$/src/test/java/testSpace.java" />
         <option value="$PROJECT_DIR$/src/test/java/HuluWaColorSortTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/group/Group.java" />
         <option value="$PROJECT_DIR$/src/test/java/HuluWaSortTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/creature/Grandpa.java" />
-        <option value="$PROJECT_DIR$/src/main/java/creature/Scorpion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/creature/Snake.java" />
-        <option value="$PROJECT_DIR$/src/main/java/creature/HuluWa.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/TwoDimensionSpace.java" />
         <option value="$PROJECT_DIR$/src/main/java/formation/FengshiFormation.java" />
         <option value="$PROJECT_DIR$/src/main/java/formation/YanhangFormation.java" />
@@ -152,8 +231,6 @@
         <option value="$PROJECT_DIR$/src/main/java/formation/HeyiFormation.java" />
         <option value="$PROJECT_DIR$/src/main/java/formation/FangmenFormation.java" />
         <option value="$PROJECT_DIR$/src/main/java/formation/ChangsheFormation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/creature/Demon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/battle/BattleField.java" />
         <option value="$PROJECT_DIR$/src/test/java/TwoDimensionSpaceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/FormationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/Main.java" />
@@ -164,9 +241,18 @@
         <option value="$PROJECT_DIR$/src/main/java/space/Coordinate.java" />
         <option value="$PROJECT_DIR$/src/main/java/mythread/MyRunnable.java" />
         <option value="$PROJECT_DIR$/src/main/java/mythread/Replay.java" />
+        <option value="$PROJECT_DIR$/src/main/java/creature/Scorpion.java" />
+        <option value="$PROJECT_DIR$/src/main/java/creature/Snake.java" />
+        <option value="$PROJECT_DIR$/src/main/java/creature/Demon.java" />
+        <option value="$PROJECT_DIR$/src/main/java/creature/Grandpa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/creature/HuluWa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sort/HuluWaBubbleSort.java" />
+        <option value="$PROJECT_DIR$/src/main/java/battle/BattleField.java" />
+        <option value="$PROJECT_DIR$/src/main/java/replay/ReplayReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/replay/ReplayWriter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/GameController.java" />
         <option value="$PROJECT_DIR$/src/main/java/creature/Creature.java" />
+        <option value="$PROJECT_DIR$/src/main/java/replay/Replay.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/GameController.java" />
       </list>
     </option>
   </component>
@@ -192,7 +278,7 @@
   <component name="MavenRunner">
     <option name="jreName" value="1.8" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1378" />
@@ -239,7 +325,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="annotation" type="462c0819:PsiDirectoryNode" />
+              <item name="creature" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="untitled" type="b2602c69:ProjectViewProjectNode" />
@@ -247,7 +333,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="battle" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="untitled" type="b2602c69:ProjectViewProjectNode" />
@@ -255,14 +341,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="replay" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="untitled" type="b2602c69:ProjectViewProjectNode" />
@@ -290,7 +369,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544703184729" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544716221589" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -373,18 +452,18 @@
       <workItem from="1544343962175" duration="18038000" />
       <workItem from="1544494160672" duration="17537000" />
       <workItem from="1544624508906" duration="6255000" />
-      <workItem from="1544667101408" duration="9946000" />
+      <workItem from="1544667101408" duration="16814000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97937000" />
+    <option name="totallyTimeSpent" value="104805000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -392,8 +471,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32911393" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39968404" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -421,51 +500,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/com/sun/javafx/application/LauncherImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6422">
-          <caret line="388" selection-start-line="388" selection-end-line="388" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/untitled.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/color/COLOR.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/annotation/AuthorAnno.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sort/Sort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sort/HuluWaBubbleSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sort/HuluWaColorSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/image/Image.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -517,13 +551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/creature/Snake.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/ui.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
@@ -546,23 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-157">
           <caret line="13" column="82" selection-start-line="13" selection-start-column="82" selection-end-line="13" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/formation/Formation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/battle/BattleField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -601,13 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/formation/ChangsheFormation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -622,13 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/navigate/Navigation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/replay/MyRunnable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-43">
@@ -640,16 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="908" selection-start-line="908" selection-end-line="908" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/replay/Replay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -680,17 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/replay/ReplayWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding>
-            <element signature="e#141#142#0" expanded="true" />
-            <element signature="e#170#171#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -699,48 +674,6 @@
             <element signature="e#942#1235#0" expanded="true" />
             <element signature="e#1234#1235#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4394#4395#0" expanded="true" />
-            <element signature="e#4427#4428#0" expanded="true" />
-            <element signature="e#4489#4490#0" expanded="true" />
-            <element signature="e#4525#4526#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/creature/Demon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/creature/Grandpa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/creature/HuluWa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/creature/Scorpion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -810,14 +743,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/group/Group.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="5" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/group/Monsters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+          <caret line="8" column="1" selection-start-line="5" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -843,15 +769,221 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/group/HuluBrothers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
+        <state relative-caret-position="380">
           <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/creature/Scorpion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="43" />
+          <folding>
+            <element signature="e#158#159#0" expanded="true" />
+            <element signature="e#208#209#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/creature/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/creature/Demon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding>
+            <element signature="e#149#150#0" expanded="true" />
+            <element signature="e#202#203#0" expanded="true" />
+            <element signature="e#392#393#0" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
+            <element signature="e#310#311#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/group/Monsters.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/creature/Grandpa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/creature/HuluWa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="61" column="10" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/formation/Formation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="5" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/formation">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>formation</OriginalElement>
+          <nodes>
+            <node x="" y="">formation.FangmenFormation</node>
+            <node x="" y="">formation.FengshiFormation</node>
+            <node x="" y="">formation.HengeFormation</node>
+            <node x="" y="">formation.YanyueFormation</node>
+            <node x="" y="">formation.HeyiFormation</node>
+            <node x="" y="">formation.YulinFormation</node>
+            <node x="" y="">formation.Formation</node>
+            <node x="" y="">formation.ChangsheFormation</node>
+            <node x="" y="">formation.YanhangFormation</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.9586972612879349" x="692.4251080914145" y="173.48054354539843" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/formation/ChangsheFormation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="3" column="48" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/color/COLOR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sort/Sort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/battle/BattleField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sort/HuluWaPrioritySort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/sort">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>sort</OriginalElement>
+          <nodes>
+            <node x="" y="">sort.HuluWaPrioritySort</node>
+            <node x="" y="">sort.HuluWaColorSort</node>
+            <node x="" y="">sort.Sort</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="163.5" y="55.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sort/HuluWaColorSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/navigate/Navigation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="12" column="87" lean-forward="true" selection-start-line="11" selection-end-line="12" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/replay/ReplayReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="e#150#151#0" expanded="true" />
+            <element signature="e#177#178#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/replay/ReplayWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="4" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="e#134#135#0" expanded="true" />
+            <element signature="e#150#151#0" expanded="true" />
+            <element signature="e#191#192#0" expanded="true" />
+            <element signature="e#221#222#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/replay/Replay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="297" column="53" lean-forward="true" selection-start-line="297" selection-start-column="53" selection-end-line="297" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2593#2594#0" expanded="true" />
+            <element signature="e#2622#2623#0" expanded="true" />
+            <element signature="e#4394#4395#0" expanded="true" />
+            <element signature="e#4427#4428#0" expanded="true" />
+            <element signature="e#4489#4490#0" expanded="true" />
+            <element signature="e#4525#4526#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/creature/Creature.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="342" column="80" selection-start-line="342" selection-start-column="80" selection-end-line="342" selection-end-column="80" />
+        <state relative-caret-position="5073">
+          <caret line="388" column="48" selection-start-line="388" selection-start-column="48" selection-end-line="388" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

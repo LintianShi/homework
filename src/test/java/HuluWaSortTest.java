@@ -38,7 +38,7 @@ public class HuluWaSortTest {
         for (int i = 1; i <= 7; i++) {
             res[i-1] = new HuluWa(i);
         }
-        new HuluWaBubbleSort().sort(test);
+        new HuluWaPrioritySort().sort(test);
         for (int i = 0; i < 7; i++) {
             assertEquals(res[i].getPriority(), test[i].getPriority());
         }

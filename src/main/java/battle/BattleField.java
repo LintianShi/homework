@@ -1,12 +1,8 @@
 package battle;
 import annotation.AuthorAnno;
-import sort.HuluWaBubbleSort;
 import space.*;
 import group.*;
-import formation.*;
 import creature.*;
-import javax.swing.*;
-import java.util.concurrent.TimeUnit;
 
 
 @AuthorAnno()
@@ -57,7 +53,7 @@ public class BattleField {
         space.displaySpace();
         System.out.println();
 
-        huluBrothers.sort(new HuluWaBubbleSort());
+        huluBrothers.sort(new HuluWaPrioritySort());
         huluBrothers.generateFormation(new ChangsheFormation(), space, 7, 6, 0);
         window.refresh();
         space.displaySpace();

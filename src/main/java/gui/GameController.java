@@ -79,6 +79,9 @@ public class GameController implements Initializable {
     public TwoDimensionSpace<Creature> getSpace() {
         return battle.space;
     }
+    public BattleField getBattle() {
+        return battle;
+    }
     public CyclicBarrier getBarrier() {
         return barrier;
     }
@@ -288,7 +291,7 @@ public class GameController implements Initializable {
     }
 
     private void replay(BufferedReader br) {
-        threadPool[0] = new Thread(new Replay(br, this, battle));
+        threadPool[0] = new Thread(new Replay(br, this));
         threadPool[0].start();
     }
 
@@ -300,18 +303,18 @@ public class GameController implements Initializable {
             barrier = new CyclicBarrier(17);
             Creature.controller = this;
             try {
-                Creature.out = new ReplayWriter(new FileWriter("log"));
+                new ReplayWriter().setOut(new FileWriter("log"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
                 for (int i = 0; i <= 7; i++) {
                     Creature c = battle.huluBrothers.get(i);
-                    Creature.out.write("move " + i + " " +c.getCoordinateX() + " " + c.getCoordinateY() + "\n");
+                    new ReplayWriter().write("move " + i + " " +c.getCoordinateX() + " " + c.getCoordinateY() + "\n");
                 }
                 for (int i = 8; i <= 16; i++) {
                     Creature c = battle.monsters.get(i);
-                    Creature.out.write("move " + i + " " + c.getCoordinateX() + " " + c.getCoordinateY() + "\n");
+                    new ReplayWriter().write("move " + i + " " + c.getCoordinateX() + " " + c.getCoordinateY() + "\n");
                 }
             } catch (Exception e) {
                 e.printStackTrace();

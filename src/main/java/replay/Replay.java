@@ -11,10 +11,10 @@ public class Replay implements Runnable {
     private BufferedReader br;
     private GameController gc;
     private BattleField battle;
-    public Replay(BufferedReader br, GameController gc, BattleField battle) {
+    public Replay(BufferedReader br, GameController gc) {
         this.br = br;
         this.gc = gc;
-        this.battle = battle;
+        this.battle = gc.getBattle();
     }
     public void run() {
         try {

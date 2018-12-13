@@ -3,9 +3,12 @@ package replay;
 import java.io.FileWriter;
 
 public class ReplayWriter {
-    private FileWriter out;
-    public ReplayWriter(FileWriter out) {
-        this.out = out;
+    private static FileWriter out;
+    public ReplayWriter() {
+        ;
+    }
+    public void setOut(FileWriter out) {
+        ReplayWriter.out = out;
     }
     public void write(String data) throws Exception {
         out.write(data);
