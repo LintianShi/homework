@@ -1,4 +1,4 @@
-package mythread;
+package replay;
 
 import battle.BattleField;
 import gui.GameController;

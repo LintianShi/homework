@@ -2,8 +2,6 @@ package gui;
 
 import battle.BattleField;
 import creature.Creature;
-import javafx.animation.FadeTransition;
-import javafx.animation.Timeline;
 import javafx.fxml.Initializable;
 import javafx.event.*;
 
@@ -17,20 +15,15 @@ import javafx.scene.control.Label;
 import javafx.scene.image.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.DragEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
-import javafx.util.Duration;
-import mythread.MyRunnable;
-import mythread.Replay;
+import replay.Replay;
+import replay.ReplayWriter;
 import space.Coordinate;
 import space.TwoDimensionSpace;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.TimeUnit;
 
 public class GameController implements Initializable {
     private boolean fighting;
@@ -113,6 +106,9 @@ public class GameController implements Initializable {
         }
         try {
             for (Coordinate c : attack) {
+                if (c.getYy() == 0 && c.getXx() == 0) {
+                    continue;
+                }
                 gc.drawImage(new Image("image/battle1.png"), 72 * c.getYy(), 72 * c.getXx(), 80, 80);
             }
         } catch (Exception e) {
@@ -132,10 +128,10 @@ public class GameController implements Initializable {
         }
         gc.drawImage(new Image("image/battle1.png"), 72 * y, 72 *x, 80, 80);
     }
-    public void addAttack(Coordinate coord) {
+    public synchronized void addAttack(Coordinate coord) {
         attack.add(coord);
     }
-    public void removeAttack(Coordinate coord) {
+    public synchronized void removeAttack(Coordinate coord) {
         attack.remove(coord);
     }
     @FXML private void yanhangHuluOnAction(ActionEvent event) {
@@ -304,7 +300,7 @@ public class GameController implements Initializable {
             barrier = new CyclicBarrier(17);
             Creature.controller = this;
             try {
-                Creature.out = new FileWriter("log");
+                Creature.out = new ReplayWriter(new FileWriter("log"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -342,6 +338,7 @@ public class GameController implements Initializable {
         } else if (event.getCode() == KeyCode.R) {
             barrier.reset();
             shutdown();
+            attack.clear();
             GraphicsContext gc = canvas.getGraphicsContext2D();
             gc.drawImage(background, 0, 0, width, height);
             info.setText("");

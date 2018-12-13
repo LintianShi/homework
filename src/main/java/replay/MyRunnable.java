@@ -1,14 +1,13 @@
-package mythread;
+package replay;
 import annotation.AuthorAnno;
 import creature.*;
 import gui.GameController;
 import javafx.application.Platform;
 import space.TwoDimensionSpace;
 
-import java.sql.Time;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.TimeUnit;
+
 @AuthorAnno()
 public class MyRunnable implements Runnable {
     private int no;

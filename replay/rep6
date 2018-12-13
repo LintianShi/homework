@@ -1,0 +1,192 @@
+move 0 4 5
+move 1 4 4
+move 2 5 4
+move 3 3 4
+move 4 4 3
+move 5 6 3
+move 6 2 3
+move 7 7 0
+move 8 4 10
+move 9 4 11
+move 10 5 11
+move 11 4 12
+move 12 5 12
+move 13 6 12
+move 14 4 13
+move 15 5 13
+move 16 5 14
+walk 0 4 6
+walk 1 4 5
+walk 2 5 5
+walk 3 3 5
+walk 4 5 3
+walk 5 6 4
+walk 6 2 4
+walk 8 4 9
+walk 9 4 10
+walk 12 5 11
+walk 13 6 11
+walk 16 6 14
+walk 7 7 1
+walk 10 5 10
+walk 11 4 11
+walk 14 4 12
+walk 15 4 13
+walk 1 4 4
+walk 5 6 5
+walk 4 6 3
+walk 0 4 7
+walk 14 3 12
+walk 9 3 10
+walk 15 3 13
+walk 12 6 12
+walk 6 2 5
+walk 11 3 11
+walk 3 3 6
+walk 10 5 9
+walk 13 6 10
+walk 8 4 8
+walk 2 5 6
+walk 16 6 13
+attack 0 4 8 lose
+walk 7 7 2
+walk 14 4 12
+walk 4 7 3
+walk 5 6 6
+walk 6 2 6
+walk 11 4 11
+walk 9 3 9
+walk 1 5 4
+walk 12 6 11
+walk 10 5 8
+walk 2 5 7
+walk 16 6 12
+walk 15 3 12
+walk 8 3 8
+walk 13 6 9
+walk 3 3 7
+attack 2 5 8 win
+walk 7 8 2
+attack 8 3 7 win
+walk 5 6 7
+walk 14 5 12
+walk 6 2 7
+walk 2 5 6
+walk 4 7 4
+walk 12 6 10
+walk 1 6 4
+walk 9 2 9
+walk 11 5 11
+walk 15 3 11
+walk 16 6 11
+walk 8 2 8
+walk 7 8 3
+walk 13 6 8
+attack 13 6 7 win
+attack 8 2 7 lose
+walk 6 1 7
+walk 1 6 5
+walk 2 6 6
+walk 11 5 10
+walk 4 7 5
+walk 12 6 9
+walk 9 1 9
+walk 15 3 10
+walk 16 6 10
+walk 7 8 4
+walk 13 7 8
+walk 14 5 11
+walk 6 1 8
+walk 1 6 4
+walk 4 7 6
+attack 6 1 9 win
+walk 12 7 9
+walk 11 5 9
+walk 16 7 10
+walk 7 8 5
+walk 13 7 7
+walk 15 2 10
+attack 13 7 6 lose
+walk 14 4 11
+walk 6 0 8
+walk 2 6 5
+clean 4 7
+walk 12 7 8
+walk 1 7 4
+walk 11 4 9
+walk 16 7 9
+walk 4 8 6
+walk 7 9 5
+walk 15 2 9
+walk 2 5 5
+walk 6 0 9
+walk 14 4 10
+walk 12 6 8
+walk 1 6 4
+walk 4 8 7
+walk 16 7 8
+clean 3 7
+walk 7 9 6
+walk 11 4 8
+walk 15 3 9
+clean 5 8
+walk 6 0 10
+walk 14 3 10
+walk 2 5 6
+clean 6 7
+walk 12 6 9
+walk 4 8 8
+walk 1 6 5
+attack 4 7 8 lose
+walk 16 6 8
+walk 11 4 7
+clean 2 8
+walk 7 8 6
+walk 15 2 9
+clean 1 9
+walk 6 1 10
+walk 2 4 6
+walk 14 2 10
+attack 6 2 10 win
+attack 2 4 7 win
+walk 12 5 9
+walk 1 6 6
+walk 16 6 7
+attack 1 6 7 win
+walk 7 8 5
+walk 15 1 9
+attack 15 1 10 win
+clean 7 7
+walk 2 5 6
+walk 1 7 6
+walk 12 5 8
+walk 7 7 5
+walk 15 1 8
+walk 12 5 7
+walk 1 7 7
+attack 12 5 6 win
+walk 7 6 5
+walk 15 2 8
+walk 1 7 8
+walk 12 5 8
+walk 7 7 5
+walk 15 3 8
+walk 1 6 8
+attack 1 5 8 win
+clean 2 10
+walk 7 7 6
+clean 8 8
+clean 6 7
+walk 15 4 8
+clean 1 10
+clean 4 7
+walk 1 6 7
+walk 7 7 5
+walk 15 4 9
+walk 1 6 8
+walk 7 6 5
+clean 5 6
+walk 15 5 9
+walk 1 6 9
+attack 1 5 9 win
+walk 7 6 4

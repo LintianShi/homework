@@ -2,12 +2,11 @@ package creature;
 import annotation.AuthorAnno;
 import gui.GameController;
 import javafx.application.Platform;
-import mythread.MyRunnable;
+import replay.ReplayWriter;
 import space.*;
-import javax.imageio.*;
+
 import java.io.*;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Random;
 import java.util.Stack;
 import java.util.concurrent.TimeUnit;
@@ -26,12 +25,14 @@ public class Creature implements Runnable{
     protected Image image;
     protected boolean evil;
     protected boolean alive;
+    protected boolean fight;
 
     public static GameController controller;
     public static int[] evilTest = {0,0,0,0,0,0,0,0,0};
     public static int[] justiceTest = {0,0,0,0,0,0,0,0};
-    public static FileWriter out;
+    public static ReplayWriter out;
     protected int no;
+
 
 
     public Creature(){
@@ -236,7 +237,7 @@ public class Creature implements Runnable{
                         && space.getCreature(getCoordinateX() + x[i], getCoordinateY() + y[i]).isEvil() ^ isEvil()) {
 
                     Random ra = new Random();
-                    gc.addAttack(new Coordinate(getCoordinateX() + 0.5 * x[i], getCoordinateY() + 0.5 * y[i]));
+                    //gc.addAttack(new Coordinate(getCoordinateX() + 0.5 * x[i], getCoordinateY() + 0.5 * y[i]));
                     if (ra.nextBoolean()) {
                         space.getCreature(getCoordinateX() + x[i], getCoordinateY() + y[i]).die();
                         try {
@@ -260,7 +261,7 @@ public class Creature implements Runnable{
                 }
             }
         }
-        return  new Coordinate(-1, -1);
+        return  new Coordinate((double)-1, -1);
     }
 
     public void attackReplay(TwoDimensionSpace space, int x, int y, Boolean win, GameController gc) {
@@ -298,11 +299,11 @@ public class Creature implements Runnable{
                         controller.setLabel("Justice win");
                     }
                 });
-                /*try {
+                try {
                     controller.getBarrier().await();
                 } catch (Exception e) {
                     e.printStackTrace();
-                }*/
+                }
                 try {
                     out.close();
                 } catch (Exception e) {
@@ -320,11 +321,11 @@ public class Creature implements Runnable{
                         controller.setLabel("Evil win");
                     }
                 });
-                /*try {
+                try {
                     controller.getBarrier().await();
                 } catch (Exception e) {
                     e.printStackTrace();
-                }*/
+                }
                 try {
                     out.close();
                 } catch (Exception e) {
@@ -348,19 +349,24 @@ public class Creature implements Runnable{
                 synchronized (Creature.class) {
                     if (isAlive()) {
                         direction = attack(controller.getSpace(), controller);
-                        //controller.addAttack(direction);
-                        controller.display();
+
                     }
                 }
                 if (direction.getXx() != -1 && direction.getYy() != -1) {
+                    synchronized (Creature.class) {
+                        controller.addAttack(direction);
+                        controller.display();
+                        controller.removeAttack(direction);
+                    }
                     try {
-                        TimeUnit.MILLISECONDS.sleep(new Random().nextInt(40) * 5 + 400);
+                        TimeUnit.MILLISECONDS.sleep(new Random().nextInt(40) * 5 + 200);
                     } catch (Exception e) {
                         ;
                     }
-                    controller.removeAttack(direction);
+
                     synchronized (Creature.class) {
-                        display();
+
+                        controller.display();
                     }
                 }
             } else {
@@ -380,15 +386,15 @@ public class Creature implements Runnable{
                 }
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(400);
+                TimeUnit.MILLISECONDS.sleep(200);
             } catch (Exception e) {
                 ;
             }
-            /*try {
+            try {
                 controller.getBarrier().await();
             } catch (Exception e) {
                 e.printStackTrace();
-            }*/
+            }
         }
     }
 }
