@@ -24,9 +24,11 @@ import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import mythread.MyRunnable;
 import mythread.Replay;
+import space.Coordinate;
 import space.TwoDimensionSpace;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
 
@@ -41,6 +43,7 @@ public class GameController implements Initializable {
     private CyclicBarrier barrier;
     private Formation HuluFormation;
     private Formation DemonFormation;
+    private ArrayList<Coordinate> attack;
     @FXML private Pane pane;
     @FXML private Canvas canvas;
     @FXML private Button yanhangHulu;
@@ -71,6 +74,7 @@ public class GameController implements Initializable {
         gc.drawImage(background, 0, 0, width, height);
         fighting = true;
         threadPool = new Thread[17];
+        attack = new ArrayList<>();
     }
     public static void shutdown() {
         for (int i = 0; i < threadPool.length; i++) {
@@ -99,9 +103,6 @@ public class GameController implements Initializable {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 15; j++) {
                 if (battle.space.getCreature(i, j) != null) {
-                    //System.out.println("not null");
-                    //System.out.println(battle.space.getCreature(i, j).getImage().);
-                    //gc.fillOval(72 * j, 72 * i, 80, 80);
                     try {
                         gc.drawImage(battle.space.getCreature(i, j).getImage(), 72 * j, 72 * i, 80, 80);
                     } catch (Exception e) {
@@ -110,8 +111,16 @@ public class GameController implements Initializable {
                 }
             }
         }
+        try {
+            for (Coordinate c : attack) {
+                gc.drawImage(new Image("image/battle1.png"), 72 * c.getYy(), 72 * c.getXx(), 80, 80);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void display(double x, double y) {
+        //attack.add(new Coordinate(x, y));
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.drawImage(background, 0, 0, width, height);
         for (int i = 0; i < 10; i++) {
@@ -121,7 +130,13 @@ public class GameController implements Initializable {
                 }
             }
         }
-        gc.drawImage(new Image("image/battle1.png"), 72 * y, 72 * x, 80, 80);
+        gc.drawImage(new Image("image/battle1.png"), 72 * y, 72 *x, 80, 80);
+    }
+    public void addAttack(Coordinate coord) {
+        attack.add(coord);
+    }
+    public void removeAttack(Coordinate coord) {
+        attack.remove(coord);
     }
     @FXML private void yanhangHuluOnAction(ActionEvent event) {
         if (!fighting) {
@@ -350,23 +365,6 @@ public class GameController implements Initializable {
                 InputStreamReader reader = new InputStreamReader(new FileInputStream(file.getPath())); // 建立一个输入流对象reader
                 BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言
                 replay(br);
-                //br.readLine()
-                /*do{
-                    String text = br.readLine();
-                    System.out.println(text);
-                    String[] array = text.split(" ");
-                    if (array[0] == "alk" || array[0] == "walk") {
-                        if (Integer.parseInt(array[1]) <= 7) {
-                            battle.huluBrothers.get(Integer.parseInt(array[1])).walkPathTo(Integer.parseInt(array[2]), Integer.parseInt(array[3]), battle.space, this);
-                        } else {
-                            battle.monsters.get(Integer.parseInt(array[1])).walkPathTo(Integer.parseInt(array[2]), Integer.parseInt(array[3]), battle.space, this);
-                        }
-                    } else if (array[0] == "ttack") {
-
-                    }
-                }while(br.read()!=-1);*/
-
-
             } catch (Exception e) {
                 e.printStackTrace();
             }

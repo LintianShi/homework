@@ -5,10 +5,16 @@ public class Coordinate {
         this.x = x;
         this.y = y;
     }
+    public Coordinate(double xx, double yy) {
+        this.xx = xx;
+        this.yy = yy;
+    }
     public Coordinate(int c) {
         this.x = c / 100;
         this.y = c % 100;
     }
+    private double xx;
+    private double yy;
     private int x;
     private int y;
     public int getX() {
@@ -17,6 +23,15 @@ public class Coordinate {
     public int getY() {
         return y;
     }
+
+    public double getXx() {
+        return xx;
+    }
+
+    public double getYy() {
+        return yy;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

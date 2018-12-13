@@ -223,7 +223,7 @@ public class Creature implements Runnable{
         walkPathTo(coord_x, coord_y,  gc);
         return;
     }
-    public int attack(TwoDimensionSpace space, GameController gc) {
+    public Coordinate attack(TwoDimensionSpace space, GameController gc) {
         int[] x = new int[4];
         int[] y = new int[4];
         x[0] = 0; x[1] = 1; x[2] = -1; x[3] = 0;
@@ -236,7 +236,7 @@ public class Creature implements Runnable{
                         && space.getCreature(getCoordinateX() + x[i], getCoordinateY() + y[i]).isEvil() ^ isEvil()) {
 
                     Random ra = new Random();
-                    gc.display(getCoordinateX() + 0.5 * x[i], getCoordinateY() + 0.5 * y[i]);
+                    gc.addAttack(new Coordinate(getCoordinateX() + 0.5 * x[i], getCoordinateY() + 0.5 * y[i]));
                     if (ra.nextBoolean()) {
                         space.getCreature(getCoordinateX() + x[i], getCoordinateY() + y[i]).die();
                         try {
@@ -256,11 +256,11 @@ public class Creature implements Runnable{
                             e.printStackTrace();
                         }
                     }
-                    return i;
+                    return new Coordinate(getCoordinateX() + 0.5 * x[i], getCoordinateY() + 0.5 * y[i]);
                 }
             }
         }
-        return  -1;
+        return  new Coordinate(-1, -1);
     }
 
     public void attackReplay(TwoDimensionSpace space, int x, int y, Boolean win, GameController gc) {
@@ -285,7 +285,7 @@ public class Creature implements Runnable{
 
     public void run() {
         int i = 99;
-        int last = 5 + new Random().nextInt(5);
+        int last = 8 + new Random().nextInt(5);
         while (i >= 0) {
             i--;
             int s = 1;
@@ -298,11 +298,11 @@ public class Creature implements Runnable{
                         controller.setLabel("Justice win");
                     }
                 });
-                try {
+                /*try {
                     controller.getBarrier().await();
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
                 try {
                     out.close();
                 } catch (Exception e) {
@@ -320,11 +320,11 @@ public class Creature implements Runnable{
                         controller.setLabel("Evil win");
                     }
                 });
-                try {
+                /*try {
                     controller.getBarrier().await();
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
                 try {
                     out.close();
                 } catch (Exception e) {
@@ -339,23 +339,26 @@ public class Creature implements Runnable{
                     }
                 }
                 try {
-                    TimeUnit.MILLISECONDS.sleep(new Random().nextInt(20) * 2 + 200);
+                    TimeUnit.MILLISECONDS.sleep(new Random().nextInt(20) * 2 + 400);
                 } catch (Exception e) {
                     ;
                 }
 
-                int direction = 0;
+                Coordinate direction = new Coordinate(-1, -1);
                 synchronized (Creature.class) {
                     if (isAlive()) {
                         direction = attack(controller.getSpace(), controller);
+                        //controller.addAttack(direction);
+                        controller.display();
                     }
                 }
-                if (direction != -1) {
+                if (direction.getXx() != -1 && direction.getYy() != -1) {
                     try {
-                        TimeUnit.MILLISECONDS.sleep(new Random().nextInt(40) * 5 + 200);
+                        TimeUnit.MILLISECONDS.sleep(new Random().nextInt(40) * 5 + 400);
                     } catch (Exception e) {
                         ;
                     }
+                    controller.removeAttack(direction);
                     synchronized (Creature.class) {
                         display();
                     }
@@ -377,15 +380,15 @@ public class Creature implements Runnable{
                 }
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(300);
+                TimeUnit.MILLISECONDS.sleep(400);
             } catch (Exception e) {
                 ;
             }
-            try {
+            /*try {
                 controller.getBarrier().await();
             } catch (Exception e) {
                 e.printStackTrace();
-            }
+            }*/
         }
     }
 }

@@ -69,7 +69,7 @@ public class MyRunnable implements Runnable {
             synchronized (MyRunnable.class) {
                 if (creature.isAlive()) {
                     creature.forward(space, controller);
-                    int direction = creature.attack(space, controller);
+                    creature.attack(space, controller);
 
                 } else {
                     if (creature.isEvil()) {
