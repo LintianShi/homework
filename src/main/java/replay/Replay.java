@@ -11,14 +11,16 @@ public class Replay implements Runnable {
     private BufferedReader br;
     private GameController gc;
     private BattleField battle;
+    private boolean working;
     public Replay(BufferedReader br, GameController gc) {
         this.br = br;
         this.gc = gc;
         this.battle = gc.getBattle();
+        working = true;
     }
     public void run() {
         try {
-            while(br.read()!=-1){
+            while(br.read()!=-1 && working){
                 String text = br.readLine();
                 System.out.println(text);
                 String[] array = text.split(" ");
@@ -33,7 +35,7 @@ public class Replay implements Runnable {
                         battle.monsters.get(Integer.parseInt(array[1])).moveToReplay(battle.space, Integer.parseInt(array[2]), Integer.parseInt(array[3]));
                     }
                     gc.display();
-                    TimeUnit.MILLISECONDS.sleep(200);
+                    TimeUnit.MILLISECONDS.sleep(150);
                 } else if (array[0].equals("ttack")) {
                     boolean win = true;
                     if (array[4].equals("win")) {
@@ -47,12 +49,12 @@ public class Replay implements Runnable {
                         battle.monsters.get(Integer.parseInt(array[1])).attackReplay(battle.space,Integer.parseInt(array[2]), Integer.parseInt(array[3]), win, gc);
                     }
                     gc.display();
-                    TimeUnit.MILLISECONDS.sleep(200);
+                    TimeUnit.MILLISECONDS.sleep(150);
                 } else if (array[0].equals("lean")) {
                     System.out.println(array[1] + " " + array[2]);
                     battle.space.cleanSpace(Integer.parseInt(array[1]), Integer.parseInt(array[2]));
                     gc.display();
-                    TimeUnit.MILLISECONDS.sleep(200);
+                    TimeUnit.MILLISECONDS.sleep(150);
                 }
             }
             Platform.runLater(new Runnable() {
@@ -63,5 +65,8 @@ public class Replay implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void close() {
+        working = false;
     }
 }

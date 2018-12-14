@@ -16,6 +16,8 @@ import javafx.scene.image.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import replay.Replay;
 import replay.ReplayWriter;
 import space.Coordinate;
@@ -32,11 +34,13 @@ public class GameController implements Initializable {
     private int width;
     private int height;
     private Creature selected;
-    private static Thread[] threadPool = new Thread[17];
+    private GUIRefresher refresher;
+    //private static Thread[] threadPool = new Thread[17];
     private CyclicBarrier barrier;
     private Formation HuluFormation;
     private Formation DemonFormation;
     private ArrayList<Coordinate> attack;
+    private Replay replay;
     @FXML private Pane pane;
     @FXML private Canvas canvas;
     @FXML private Button yanhangHulu;
@@ -66,14 +70,21 @@ public class GameController implements Initializable {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.drawImage(background, 0, 0, width, height);
         fighting = true;
-        threadPool = new Thread[17];
+        //threadPool = new Thread[17];
         attack = new ArrayList<>();
+        refresher = new GUIRefresher(this);
     }
-    public static void shutdown() {
-        for (int i = 0; i < threadPool.length; i++) {
-            if (threadPool[i] != null) {
-                threadPool[i].stop();
-            }
+    public void shutdown() {
+        barrier = new CyclicBarrier(1);
+        refresher.close();
+        if (replay != null) {
+            replay.close();
+        }
+        for (int i = 0; i <= 7; i++) {
+            battle.huluBrothers.get(i).die();
+        }
+        for (int i = 8; i <= 16; i++) {
+            battle.monsters.get(i).die();
         }
     }
     public TwoDimensionSpace<Creature> getSpace() {
@@ -255,31 +266,26 @@ public class GameController implements Initializable {
     }
 
     @FXML private void canvasClick(MouseEvent event) {
-        /*int x = (int)event.getX() - 60;
-        int y = (int)event.getY();
-        x = x / 30;
-        y = y / 30;
 
-        if (battle.space.getCreature(y, x) != null) {
-            selected = battle.space.getCreature(y, x);
-            head.setImage(selected.getImage());
-            info.setText(selected.getName());
-        }*/
     }
 
     @FXML private void canvasDragDetect(MouseEvent event) {
+        if (!fighting) {
+            return;
+        }
         int x = (int)event.getX();
         int y = (int)event.getY();
         x = x / 72;
         y = y / 72;
         if (battle.space.getCreature(y, x) != null) {
             selected = battle.space.getCreature(y, x);
-            //head.setImage(selected.getImage());
-            //info.setText(selected.getName());
         }
     }
 
     @FXML private void canvasDrag(MouseEvent event) {
+        if (!fighting) {
+            return;
+        }
         int x = (int)event.getX();
         int y = (int)event.getY();
         x = x / 72;
@@ -291,11 +297,23 @@ public class GameController implements Initializable {
     }
 
     private void replay(BufferedReader br) {
-        threadPool[0] = new Thread(new Replay(br, this));
-        threadPool[0].start();
+        //threadPool[0] = new Thread(new Replay(br, this));
+        //threadPool[0].start();
+        replay = new Replay(br, this);
+        new Thread(replay).start();
     }
 
     @FXML private void paneKeyboard(KeyEvent event) {
+        Stage stage = (Stage) pane.getScene().getWindow();
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                shutdown();
+                refresher.close();
+                System.out.print("监听到窗口关闭");
+                //GameController controller = fxmlLoader.getController();
+            }
+        });
         System.out.println(event.getCode());
         if (event.getCode() == KeyCode.SPACE && fighting) {
             fighting = false;
@@ -319,28 +337,34 @@ public class GameController implements Initializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
+            refresher = new GUIRefresher(this);
+            new Thread(refresher).start();
             int k = 0;
             for (int i = 0; i < 7; i++) {
-                threadPool[k] = new Thread(battle.huluBrothers.member[i]);
-                threadPool[k].start();
+                //threadPool[k] = new Thread(battle.huluBrothers.member[i]);
+                //threadPool[k].start();
+                new Thread(battle.huluBrothers.member[i]).start();
                 k++;
             }
-            threadPool[k] = new Thread(battle.huluBrothers.observer);
-            threadPool[k].start();
+            //threadPool[k] = new Thread(battle.huluBrothers.observer);
+            //threadPool[k].start();
+            new Thread(battle.huluBrothers.observer).start();
             k++;
             for (int i = 0; i < 8; i++) {
-                threadPool[k] = new Thread(battle.monsters.member[i]);
-                threadPool[k].start();
+                //threadPool[k] = new Thread(battle.monsters.member[i]);
+                //threadPool[k].start();
+                new Thread(battle.monsters.member[i]).start();
                 k++;
             }
-            threadPool[k] = new Thread(battle.monsters.observer);
-            threadPool[k].start();
+            //threadPool[k] = new Thread(battle.monsters.observer);
+            //threadPool[k].start();
+            new Thread(battle.monsters.observer).start();
             k++;
             //battle.huluBrothers.member
         } else if (event.getCode() == KeyCode.R) {
-            barrier.reset();
             shutdown();
+            //barrier.reset();
+
             attack.clear();
             GraphicsContext gc = canvas.getGraphicsContext2D();
             gc.drawImage(background, 0, 0, width, height);
@@ -348,12 +372,13 @@ public class GameController implements Initializable {
             fighting = true;
             battle = new BattleField();
             Creature.refresh();
-        } else if (event.getCode() == KeyCode.L) {
+        } else if (event.getCode() == KeyCode.L && fighting) {
             shutdown();
+            fighting = false;
             GraphicsContext gc = canvas.getGraphicsContext2D();
             gc.drawImage(background, 0, 0, width, height);
             info.setText("replay");
-            fighting = true;
+            //fighting = true;
             battle = new BattleField();
             Creature.refresh();
             FileChooser fileChooser = new FileChooser();
@@ -368,9 +393,13 @@ public class GameController implements Initializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
         }
+    }
 
+    public boolean isFighting() {
+        return fighting;
+    }
+    public void setFighting(boolean flag) {
+        fighting = flag;
     }
 }

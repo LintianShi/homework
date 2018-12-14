@@ -161,7 +161,7 @@ public class Creature implements Runnable{
             int temp = st.pop();
             k--;
             moveTo(space, temp/100, temp%100);
-            gc.display();
+            //gc.display();
         }
         if (k == 1) {
             if (x > getCoordinateX() && space.isEmpty(getCoordinateX()+1, getCoordinateY())) {
@@ -280,7 +280,7 @@ public class Creature implements Runnable{
     public void attackReplay(TwoDimensionSpace space, int x, int y, Boolean win, GameController gc) {
          gc.display(((double) getCoordinateX()+x)/2, ((double)getCoordinateY()+y)/2);
          try {
-             TimeUnit.MILLISECONDS.sleep(200);
+             TimeUnit.MILLISECONDS.sleep(100);
          } catch (Exception e) {
                     ;
          }
@@ -302,21 +302,23 @@ public class Creature implements Runnable{
         int last = 8 + new Random().nextInt(5);
         while (i >= 0) {
             i--;
+            //System.out.println("no"+no);
             int s = 1;
             for (int k = 0; k < 9; k++) {
                 s *= evilTest[k];
             }
             if (s == 1) {
+                //controller.setFighting(true);
                 Platform.runLater(new Runnable() {
                     public void run() {
                         controller.setLabel("Justice win");
                     }
                 });
-                try {
+                /*try {
                     controller.getBarrier().await();
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
                 try {
                     new ReplayWriter().close();
                 } catch (Exception e) {
@@ -329,16 +331,17 @@ public class Creature implements Runnable{
                 s *= justiceTest[k];
             }
             if (s == 1) {
+                //controller.setFighting(true);
                 Platform.runLater(new Runnable() {
                     public void run() {
                         controller.setLabel("Evil win");
                     }
                 });
-                try {
+                /*try {
                     controller.getBarrier().await();
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
                 try {
                     new ReplayWriter().close();
                 } catch (Exception e) {
@@ -353,7 +356,7 @@ public class Creature implements Runnable{
                     }
                 }
                 try {
-                    TimeUnit.MILLISECONDS.sleep(new Random().nextInt(20) * 2 + 400);
+                    TimeUnit.MILLISECONDS.sleep(new Random().nextInt(20) * 5 + 400);
                 } catch (Exception e) {
                     ;
                 }
@@ -366,21 +369,26 @@ public class Creature implements Runnable{
                     }
                 }
                 if (direction.getXx() != -1 && direction.getYy() != -1) {
-                    synchronized (Creature.class) {
+                    synchronized (Coordinate.class) {
                         controller.addAttack(direction);
-                        controller.display();
+                    }
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(120);
+                    } catch (Exception e) {
+                        ;
+                    }
+                    synchronized (Coordinate.class) {
                         controller.removeAttack(direction);
                     }
                     try {
-                        TimeUnit.MILLISECONDS.sleep(new Random().nextInt(40) * 5 + 200);
+                        TimeUnit.MILLISECONDS.sleep(new Random().nextInt(20) * 5 + 300);
                     } catch (Exception e) {
                         ;
                     }
 
-                    synchronized (Creature.class) {
-
+                    /*synchronized (Creature.class) {
                         controller.display();
-                    }
+                    }*/
                 }
             } else {
                 last--;
@@ -399,15 +407,15 @@ public class Creature implements Runnable{
                 }
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(200);
+                TimeUnit.MILLISECONDS.sleep(500);
             } catch (Exception e) {
                 ;
             }
-            try {
+            /*try {
                 controller.getBarrier().await();
             } catch (Exception e) {
                 e.printStackTrace();
-            }
+            }*/
         }
     }
 }

@@ -19,20 +19,13 @@ import java.net.URL;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ui.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        //this.fxmlLoader = fxmlLoader;
+        Parent root = fxmlLoader.load(getClass().getClassLoader().getResource("ui.fxml"));
         primaryStage.setTitle("HuluWa World");
         primaryStage.setScene(new Scene(root, 1280, 720));
         primaryStage.show();
         //primaryStage.setFullScreen(true);
-        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                GameController.shutdown();
-                System.out.print("监听到窗口关闭");
-                //GameController controller = fxmlLoader.getController();
-            }
-        });
     }
     public static void main(String[] args) {
         launch(args);
