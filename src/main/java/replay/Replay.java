@@ -65,6 +65,7 @@ public class Replay implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //gc.setFighting(true);
     }
     public void close() {
         working = false;

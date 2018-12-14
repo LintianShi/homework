@@ -25,11 +25,9 @@ public class Creature implements Runnable{
     private Image image;
     private boolean evil;
     private boolean alive;
+    private boolean working;
 
     public static GameController controller;
-    private static int[] evilTest = {0,0,0,0,0,0,0,0,0};
-    private static int[] justiceTest = {0,0,0,0,0,0,0,0};
-    //private ReplayWriter out;
     private int no;
 
     public Creature(String name, String imgPath, boolean evil){
@@ -39,6 +37,7 @@ public class Creature implements Runnable{
         this.imgPath = imgPath;
         this.evil = evil;
         this.alive = true;
+        working = true;
         //out = new ReplayWriter();
     }
 
@@ -48,6 +47,7 @@ public class Creature implements Runnable{
         name = "未命名";
         evil = false;
         alive = true;
+        working = true;
         //out = new ReplayWriter();
     }
     public Creature(String name){
@@ -56,15 +56,12 @@ public class Creature implements Runnable{
         this.name = name;
         alive = true;
         evil = false;
+        working = true;
         //out = new ReplayWriter();
     }
-    public static void refresh() {
-        for (int i = 0; i < evilTest.length; i++) {
-            evilTest[i] = 0;
-        }
-        for (int i = 0; i < justiceTest.length; i++) {
-            justiceTest[i] = 0;
-        }
+
+    public void close() {
+        working = false;
     }
     public void display() {
         controller.display();
@@ -235,7 +232,6 @@ public class Creature implements Runnable{
             }
         }
         walkPathTo(coord_x, coord_y,  gc);
-        return;
     }
     public Coordinate attack(TwoDimensionSpace space, GameController gc) {
         int[] x = new int[4];
@@ -300,55 +296,7 @@ public class Creature implements Runnable{
     public void run() {
         int i = 99;
         int last = 8 + new Random().nextInt(5);
-        while (i >= 0) {
-            i--;
-            //System.out.println("no"+no);
-            int s = 1;
-            for (int k = 0; k < 9; k++) {
-                s *= evilTest[k];
-            }
-            if (s == 1) {
-                //controller.setFighting(true);
-                Platform.runLater(new Runnable() {
-                    public void run() {
-                        controller.setLabel("Justice win");
-                    }
-                });
-                /*try {
-                    controller.getBarrier().await();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }*/
-                try {
-                    new ReplayWriter().close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                break;
-            }
-            s = 1;
-            for (int k = 0; k < 8; k++) {
-                s *= justiceTest[k];
-            }
-            if (s == 1) {
-                //controller.setFighting(true);
-                Platform.runLater(new Runnable() {
-                    public void run() {
-                        controller.setLabel("Evil win");
-                    }
-                });
-                /*try {
-                    controller.getBarrier().await();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }*/
-                try {
-                    new ReplayWriter().close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                break;
-            }
+        while ((isAlive() || last >= 0) && working) {
             if (isAlive()) {
                 synchronized (Creature.class) {
                     if (isAlive()) {
@@ -385,14 +333,10 @@ public class Creature implements Runnable{
                     } catch (Exception e) {
                         ;
                     }
-
-                    /*synchronized (Creature.class) {
-                        controller.display();
-                    }*/
                 }
             } else {
                 last--;
-                if (last < 0 && getCoordinateX() != -1 && getCoordinateY() != -1) {
+                if (last <0 && getCoordinateX() != -1 && getCoordinateY() != -1) {
                     try {
                         new ReplayWriter().write("clean "+ getCoordinateX() + " " + getCoordinateY() + "\n");
                     } catch (Exception e) {
@@ -400,22 +344,12 @@ public class Creature implements Runnable{
                     }
                     controller.getSpace().cleanSpace(getCoordinateX(), getCoordinateY());
                 }
-                if (isEvil()) {
-                    evilTest[no - 8] = 1;
-                } else {
-                    justiceTest[no] = 1;
-                }
             }
             try {
                 TimeUnit.MILLISECONDS.sleep(500);
             } catch (Exception e) {
                 ;
             }
-            /*try {
-                controller.getBarrier().await();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }*/
         }
     }
 }

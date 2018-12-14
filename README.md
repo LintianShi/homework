@@ -25,7 +25,8 @@
 ### 代码结构
 #### gui
 * class Main是整个程序的入口。
-* class GameController是JavaFX框架，使用FXML Scene Builder工具的一个控制器。负责整个处理程序的各种外部事件、UI控制、画面刷新等。
+* class GameController是JavaFX框架，使用FXML Scene Builder工具的一个控制器。整个处理程序的各种外部事件处理函数、画面刷新函数等都在该类里。
+* class GUIRefresher用于定时进行刷新画面。
 #### package space
 * class Tile是二维平面的基本组成单位，生物体能够放置在Tile上。Tile具有一系列接口可以判断该Tile对象上是否有生物体、将该Tile对象上的生物体移除、在该Tile上放置一个生物体等。  
 ```java
@@ -78,7 +79,7 @@ public class Creature implements Runnable{
 * class HuluWa继承于Creature。
 * class Grandpa继承于Creature。
 * class Snake继承于Demon。
-* class Scorpion继承于Demon。
+* class Scorpion继承于Demon。  
 ![image](ScreenShots/creature1.png)
 #### package group
 * interface Group是一个公共接口，实现该接口的类应能够进行排列阵型。
@@ -89,7 +90,7 @@ public interface Group {
 }
 ```
 * class HuluBrothers实现了Group接口，并由一组HuluWa对象和一个Grandpa对象组合而成，是游戏中的葫芦娃阵营。
-* class Monsters实现了Group接口，并由一组Demon对象组合而成，是游戏中的妖怪阵营。
+* class Monsters实现了Group接口，并由一组Demon对象组合而成，是游戏中的妖怪阵营。   
 ![image](ScreenShots/group1.png)
 #### package Formation
 * abstract class Formation是一个抽象类，并具有一个抽象接口用于排列阵型。
@@ -105,7 +106,7 @@ public abstract class Formation {
 * class HeyiFormation继承了Formation类，具体实现了长蛇阵法。
 * class YanhangeFormation继承了Formation类，具体实现了长蛇阵法。
 * class YanyueFormation继承了Formation类，具体实现了长蛇阵法。
-* class YulinFormation继承了Formation类，具体实现了长蛇阵法。
+* class YulinFormation继承了Formation类，具体实现了长蛇阵法。  
 ![image](ScreenShots/formation1.png)
 #### package battle
 * class BattleField该类由一个二维空间、葫芦娃阵营和妖怪阵营组合而成。包含了葫芦娃游戏所需的所有元素。
@@ -130,12 +131,53 @@ public interface Sort {
 }
 ```
 * class HuluWaColorSort实现了Sort接口，基于葫芦娃的颜色进行排序。
-* class HuluWaPrioritySort实现了Sort接口，基于葫芦娃的排行进行排序。
+* class HuluWaPrioritySort实现了Sort接口，基于葫芦娃的排行进行排序。  
 ![image](ScreenShots/sort1.png)
+#### package annotation
+* @interface AuthorAnno是一个生命期至running time的一个类型注解，可以标识一个类的作者和版本。
 ## 功能实现
+### 阵型排列
+* 用户可以通过程序界面两侧的按钮布置阵型。用户点击按钮后通过按钮的触发事件处理函数，将生物体排列成相应的阵型。
+* 用户也可以通过鼠标拖拽排列生物体。首先定义了一个DragDetect事件，当拖拽开始时，通过坐标转换获得二维空间对应位置的生物体(可能为null)。然后定义了一个Drag事件，在鼠标拖拽过程中不断将生物体移动到鼠标当前坐标对应在二维空间的位置，并刷新画面形成生物体被鼠标拖拽的效果。
+* DragDetect和Drag事件的处理函数在游戏进行中都被将被禁用，以免干扰正常的游戏。
+```java
+@FXML private void canvasDragDetect(MouseEvent event) {
+        if (!fighting) {
+            return;
+        }
+        int x = (int)event.getX();
+        int y = (int)event.getY();
+        x = x / 72;
+        y = y / 72;
+        if (battle.space.getCreature(y, x) != null) {
+            selected = battle.space.getCreature(y, x);
+        }
+    }
+
+    @FXML private void canvasDrag(MouseEvent event) {
+        if (!fighting) {
+            return;
+        }
+        int x = (int)event.getX();
+        int y = (int)event.getY();
+        x = x / 72;
+        y = y / 72;
+        if (selected != null) {
+            selected.moveTo(battle.space, y, x);
+        }
+        display();
+    }
+```
 ### 战斗功能
 * GameController类中有一个成员BattleField battle包含了游戏所需要的二维空间和生物体们。
-* 当用户按下空格后，GameController类中的键盘事件处理函数捕捉到该事件，然后通过Thread类运行所有的生物体线程。
+* 当用户按下空格后，GameController类中的键盘事件处理函数捕捉到该事件，然后通过Thread类运行所有的生物体线程和画面定时刷新线程。
+* 通过定时刷新的线程判断游戏是否已经结束，结束条件为某一方全部死亡。
+* 在void run()函数里，生物体首先会自己是否已经死亡。
+* 如果活着会在forward函数中寻找离该生物体曼哈顿距离最接近的几个敌人，并选择一个作为进攻目标。然后通过walkPathTo函数生成路径进行移动。移动到目标附近后，会调用attack函数对附近的敌人进行攻击。
+* 如果生物体已经死亡，进程不会立即结束，该生物体会以墓碑的形式继续存在若干回合，最后才消亡。
+* 上述过程循环重复进行，直到一个生物体的生命期结束或者有其他进程关闭了它。
+### 线程安全的实现
+* 当每个生物线程进行移动和攻击时，对该部分代码加上synchronized锁住，保证一个生物体进程在进行移动和攻击时独享资源，避免冲突。
 ### 录像回看
 * 在ReplayWriter类中有一个静态变量FileWriter out。ReplayWriter中的void write(String data)就通过静态变量FileWriter out进行写文件操作。
 ```java
@@ -156,23 +198,25 @@ public class ReplayWriter {
 }
 ```
 * 当游戏开始时，首先在游戏目录下创建log文件，然后把该文件的FileWriter赋给ReplayWriter类的静态变量FileWriter out。然后启动所有生物体线程，当生物线程进行move和attack等操作时直接new一个ReplayWriter对象，然后通过write方法可以实现多个线程往同一个log文件中写数据，并且实现了写log文件的功能与Creature类的功能分离。
-* 进行录像回放时，首先由用户选择打开一个log文件，然后将该文件的BufferedReader，程序游戏控制器构造一个Replay对象。然后Replay的run方法中不断从BufferedReader br中读取记录，对BattleField battle中的数据进行操作，最后通过GameController gc刷新UI；
-* 虽然个生物体线程是并发进行的，但运行时记录的写入还是有先后顺序的。录像回放的时候按照记录写入的顺序依次重现记录的操作即可。
+* 进行录像回放时，首先由用户选择打开一个log文件，然后将该文件的BufferedReader和程序游戏控制器GameController构造一个Replay对象。然后Replay的run方法中定时从BufferedReader br中读取一条记录，对BattleField battle中的数据进行操作，然后通过GameController gc刷新一次UI。
+* 虽然每个生物体线程是并发进行的，但运行时记录的写入还是有先后顺序的。录像回放的时候按照记录写入的顺序依次重现记录的操作即可。
 ```java
 public class Replay implements Runnable {
     private BufferedReader br;
     private GameController gc;
     private BattleField battle;
-    public Replay(BufferedReader br, GameController gc, BattleField battle) {
+    public Replay(BufferedReader br, GameController gc) {
         this.br = br;
         this.gc = gc;
-        this.battle = battle;
+        this.battle = gc.getBattle();
     }
     public void run() {
         /*...*/
     }
 }
 ```
+## 单元测试
+* 使用了JUnit对TwoDimensionSpace，Formation等几个模块进行了单元测试。
 ## 思考总结
 * 通过葫芦娃这长达一个学期的项目，我对代码进行了反复的迭代。在这个过程中我感受到写出可以运行，没有bug的代码并不是最难的事情。最难的是写出结构清晰，易于扩展和复用的代码，这才是好代码。
 * 在coding过程中，有时因为偷懒或疏忽等原因写出了设计糟糕的代码，在不久之后就能感受到了糟糕设计的弊端，于是需要对代码进行重新的设计。不过仍有很多设计我仍觉得不够满意，不过代码的迭代是永无止境的。

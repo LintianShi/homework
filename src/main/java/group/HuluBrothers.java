@@ -67,4 +67,16 @@ public class HuluBrothers implements Group{
     {
         formation.generateFormation(space, member, observer, x, y, direction);
     }
+    public boolean isAllDead() {
+        //boolean allDead = true;
+        for (HuluWa h : member) {
+            if (h.isAlive()) {
+                return false;
+            }
+        }
+        if (observer.isAlive()) {
+            return false;
+        }
+        return true;
+    }
 }

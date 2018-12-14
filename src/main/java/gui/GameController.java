@@ -81,10 +81,10 @@ public class GameController implements Initializable {
             replay.close();
         }
         for (int i = 0; i <= 7; i++) {
-            battle.huluBrothers.get(i).die();
+            battle.huluBrothers.get(i).close();
         }
         for (int i = 8; i <= 16; i++) {
-            battle.monsters.get(i).die();
+            battle.monsters.get(i).close();
         }
     }
     public TwoDimensionSpace<Creature> getSpace() {
@@ -371,16 +371,15 @@ public class GameController implements Initializable {
             info.setText("");
             fighting = true;
             battle = new BattleField();
-            Creature.refresh();
         } else if (event.getCode() == KeyCode.L && fighting) {
             shutdown();
+            System.out.println("shutdown");
             fighting = false;
             GraphicsContext gc = canvas.getGraphicsContext2D();
             gc.drawImage(background, 0, 0, width, height);
             info.setText("replay");
             //fighting = true;
             battle = new BattleField();
-            Creature.refresh();
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Open Resource File");
             File file = fileChooser.showOpenDialog(pane.getScene().getWindow());
