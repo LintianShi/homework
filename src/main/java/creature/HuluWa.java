@@ -58,9 +58,6 @@ public class HuluWa extends Creature {
                 System.out.println("error:there is only 7 HuluWas");
                 break;
         }
-        //alive = true;
-        //evil = false;
-        //image = new Image(imgPath);
     }
     public void shoutOutColor(){
         System.out.print(color.colorInChinese);
@@ -81,10 +78,5 @@ public class HuluWa extends Creature {
     }
     public int compareColor(HuluWa compareTarget){
         return color.ordinal() - compareTarget.getColor().ordinal();
-    }
-    public void swapHuluWa(HuluWa swapTarget, int src, int dest){
-
-        //System.out.println(name+":"+(src+1)+"->"+(dest+1));
-        //System.out.println(swapTarget.getName()+":"+(dest+1)+"->"+(src+1));
     }
 }

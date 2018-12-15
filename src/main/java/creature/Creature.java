@@ -26,10 +26,9 @@ public class Creature implements Runnable{
     private boolean evil;
     private boolean alive;
     private boolean working;
-
-    public static GameController controller;
     private int no;
 
+    public static GameController controller;
     public Creature(String name, String imgPath, boolean evil){
         coordinateX = -1;
         coordinateY = -1;
@@ -38,7 +37,6 @@ public class Creature implements Runnable{
         this.evil = evil;
         this.alive = true;
         working = true;
-        //out = new ReplayWriter();
     }
 
     public Creature(){
@@ -48,7 +46,6 @@ public class Creature implements Runnable{
         evil = false;
         alive = true;
         working = true;
-        //out = new ReplayWriter();
     }
     public Creature(String name){
         coordinateX = -1;
@@ -62,9 +59,6 @@ public class Creature implements Runnable{
 
     public void close() {
         working = false;
-    }
-    public void display() {
-        controller.display();
     }
     public void loadImage() {
         image = new Image(imgPath);
@@ -152,7 +146,6 @@ public class Creature implements Runnable{
             st.push(z);
             z = path.get(z);
         }
-        //System.out.println(st);
         int k = 1;
         while (!st.isEmpty() && k > 0) {
             int temp = st.pop();
@@ -246,7 +239,6 @@ public class Creature implements Runnable{
                         && space.getCreature(getCoordinateX() + x[i], getCoordinateY() + y[i]).isEvil() ^ isEvil()) {
 
                     Random ra = new Random();
-                    //gc.addAttack(new Coordinate(getCoordinateX() + 0.5 * x[i], getCoordinateY() + 0.5 * y[i]));
                     if (ra.nextBoolean()) {
                         space.getCreature(getCoordinateX() + x[i], getCoordinateY() + y[i]).die();
                         try {

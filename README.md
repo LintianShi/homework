@@ -217,6 +217,21 @@ public class Replay implements Runnable {
 ```
 ## 单元测试
 * 使用了JUnit对TwoDimensionSpace，Formation等几个模块进行了单元测试。
+## 设计原则
+### SRP 单一职责原则
+* 在Creature类里，需要在void run()函数里记录生物体进程所做的操作，一开始的设计是直接在void run()函数里进行文件读写。后来考虑到文件读写的功能并不是生物体的职责，所以加入了一个ReplayWriter类，对写文件操作进行了封装，在void run()函数里通过ReplayWriter类进行写文件即可，实现了文件操作和Creature类功能的分离。
+* Creature类中寻找路径的功能通过Navigation类实现，寻路与Creature类的功能实现分离。
+* 将游戏的逻辑与视图分离。Creature类中没有与显示有关的方法，而是通过GUIRefresher类的线程定时刷新画面。
+### OCP 开放封闭原则
+* 将阵型抽象成一个abstract class Formation，然后具体的阵型通过继续抽象类Formation，实现其中的抽象方法来获得不同的阵型。保证了接口的统一，便于阵型的添加和调用。
+### LSP LISKOV替换法则
+* 所有从Creature类继承的子类HuluWa、Demon、Grandpa、Snake和Scorpion都可以替换程序中的Creature类。
+### ISP 接口隔离原则
+* 在葫芦娃游戏的代码设计中，没有出现一个类拥有其功能所不需要的方法。
+### CARP 合成/聚合复用原则
+* 二维空间类TwoDimensionSpace是有一组Tile类合成而来。
+* 战场类BattleField类由Creature的子类和TwoDimensionSpace类聚合而成。
+
 ## 思考总结
 * 通过葫芦娃这长达一个学期的项目，我对代码进行了反复的迭代。在这个过程中我感受到写出可以运行，没有bug的代码并不是最难的事情。最难的是写出结构清晰，易于扩展和复用的代码，这才是好代码。
 * 在coding过程中，有时因为偷懒或疏忽等原因写出了设计糟糕的代码，在不久之后就能感受到了糟糕设计的弊端，于是需要对代码进行重新的设计。不过仍有很多设计我仍觉得不够满意，不过代码的迭代是永无止境的。
