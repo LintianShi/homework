@@ -79,4 +79,6 @@ public class HuluWa extends Creature {
     public int compareColor(HuluWa compareTarget){
         return color.ordinal() - compareTarget.getColor().ordinal();
     }
+    public void swapHuluWa(HuluWa swapTarget, int src, int dest){
+    }
 }
